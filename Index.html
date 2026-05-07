@@ -22,8 +22,6 @@ body{
     color:#222;
 }
 
-/* ================= NAVBAR ================= */
-
 nav{
     position:fixed;
     top:0;
@@ -60,8 +58,6 @@ nav ul li a{
 nav ul li a:hover{
     color:#ffd43b;
 }
-
-/* ================= HERO ================= */
 
 .hero{
     min-height:100vh;
@@ -124,37 +120,32 @@ nav ul li a:hover{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:120px 8% 0; /* important: alisin bottom padding */
+    padding:120px 8% 0; 
     background:linear-gradient(135deg,#12214e,#355cdb);
     color:white;
     gap:50px;
 }
 
-/* LEFT SIDE */
 .hero-content{
     flex:1;
     max-width:600px;
 }
 
-/* RIGHT SIDE */
 .hero-image{
     flex:1;
     display:flex;
     justify-content:flex-end;
-    align-items:flex-end; /* ito ang critical fix */
+    align-items:flex-end; 
 }
 
-/* PROFILE IMAGE */
 .hero-image img{
-    width:520px;   /* mas balanced size */
+    width:520px;   
     max-width:100%;
     height:auto;
     object-fit:contain;
     display:block;
-    margin-bottom:-2px; /* para mukhang naka-sagad sa blue */
+    margin-bottom:-2px; 
 }
-
-/* ================= SECTION ================= */
 
 section{
     padding:90px 8%;
@@ -170,8 +161,6 @@ section{
     color:#1c2f75;
 }
 
-/* ================= ABOUT ================= */
-
 .about-box{
     background:white;
     padding:40px;
@@ -181,8 +170,6 @@ section{
     line-height:1.9;
     font-size:17px;
 }
-
-/* ================= GALLERY ================= */
 
 .gallery{
     background:#eef2ff;
@@ -227,8 +214,6 @@ section{
     line-height:1.7;
 }
 
-/* ================= PORTFOLIO ================= */
-
 .portfolio-container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -249,8 +234,6 @@ section{
     transform:translateY(-5px);
 }
 
-/* ================= BLOG ================= */
-
 .blog{
     background:#eef2ff;
 }
@@ -268,8 +251,6 @@ section{
     color:#1c2f75;
 }
 
-/* ================= CONTACT ================= */
-
 .contact-box{
     background:white;
     padding:40px;
@@ -279,16 +260,12 @@ section{
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-/* ================= FOOTER ================= */
-
 footer{
     background:#12214e;
     color:white;
     text-align:center;
     padding:20px;
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
 
@@ -312,8 +289,6 @@ footer{
     }
 
 }
-
-/* ================= PORTFOLIO ================= */
 
 .portfolio-container{
     display:grid;
@@ -353,8 +328,6 @@ footer{
     font-size:14px;
     line-height:1.6;
 }
-
-/* ================= MODAL PREVIEW ================= */
 
 .modal{
     display:none;
@@ -483,12 +456,41 @@ footer{
     color:#555;
 }
 
+.experience-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.experience-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:.3s;
+    border-left:5px solid #1c2f75;
+}
+
+.experience-card:hover{
+    transform:translateY(-8px);
+    border-left:5px solid #ffd43b;
+}
+
+.experience-card h3{
+    color:#1c2f75;
+    margin-bottom:10px;
+}
+
+.experience-card p{
+    font-size:14px;
+    line-height:1.7;
+    color:#555;
+}
+
 </style>
 </head>
 
 <body>
-
-<!-- ================= NAVBAR ================= -->
 
 <nav>
 
@@ -497,6 +499,7 @@ footer{
     <ul>
         <li><a href="#home">HOME</a></li>
         <li><a href="#about">ABOUT</a></li>
+        <li><a href="#experience">EXPERIENCE</a></li>
         <li><a href="#gallery">GALLERY</a></li>
         <li><a href="#portfolio">PORTFOLIO</a></li>
         <li><a href="#skills">SKILLS</a></li>
@@ -504,8 +507,6 @@ footer{
     </ul>
 
 </nav>
-
-<!-- ================= HOME ================= -->
 
 <section class="hero" id="home">
 
@@ -534,8 +535,6 @@ footer{
 
 </section>
 
-<!-- ================= ABOUT ================= -->
-
 <section id="about">
 
     <div class="section-title">
@@ -549,7 +548,76 @@ footer{
 
 </section>
 
-<!-- ================= GALLERY ================= -->
+<section id="experience">
+
+    <div class="section-title">
+        <h2>College Experience</h2>
+    </div>
+
+    <div class="experience-container">
+
+        <div class="experience-card">
+            <h3>Before College - Early Skills Foundation</h3>
+            <p>
+                Before entering college at CSTA (Colegio de Sta. Teresa de Avila),
+                I already had basic experience in Python programming.
+                I explored biometric-related projects such as facial recognition systems
+                and hand motion detection, which sparked my interest in system development
+                and artificial intelligence concepts early on.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>1st Year - 1st Semester</h3>
+            <p>
+                During my first semester, I started learning Java as my first formal programming language.
+                I also had a little experience in VB.NET, which helped me understand
+                basic programming logic and system structure.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>1st Year - 2nd Semester</h3>
+            <p>
+                I improved significantly in VB.NET through self-learning and practice.
+                I gained deeper knowledge in MySQL database and Microsoft Access,
+                which strengthened my ability to create database-driven applications.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>2nd Year - 1st Semester</h3>
+            <p>
+                I focused more on integrating databases with VB.NET systems.
+                I also learned system design, UI development, deployment process,
+                and improving overall user interface and user experience in applications.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>2nd Year - 2nd Semester</h3>
+            <p>
+                I started exploring HTML for web development, although it felt more complex
+                compared to VB.NET drag-and-drop development. Despite that, I continued learning
+                and focused more on AI integration in my projects. This is where I discovered tools
+                like GPT4All and Ollama 3, which expanded my understanding of AI-based systems.
+            </p>
+        </div>
+
+        <!-- NEW: KEEP EXPLORING CARD -->
+        <div class="experience-card coming-soon">
+            <h3>🚀 Keep Exploring...</h3>
+            <p>
+                My journey in IT is still ongoing. I am continuously learning new technologies,
+                improving my programming skills, and exploring more advanced fields such as
+                Artificial Intelligence, Web Development, and System Integration.  
+                More experiences, challenges, and projects will be added soon as I grow in this field.
+            </p>
+        </div>
+
+    </div>
+
+</section>
 
 <section class="gallery" id="gallery">
 
@@ -671,8 +739,6 @@ footer{
 
 </section>
 
-<!-- ================= PORTFOLIO ================= -->
-
 <section id="portfolio">
 
     <div class="section-title">
@@ -757,9 +823,6 @@ footer{
 
 </section>
 
-
-<!-- ================= SKILLS ================= -->
-
 <section class="skills" id="skills">
 
     <div class="section-title">
@@ -813,8 +876,6 @@ footer{
 
 </section>
 
-<!-- ================= CONTACT ================= -->
-
 <section id="contact">
 
     <div class="section-title">
@@ -845,13 +906,10 @@ footer{
 
 </section>
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
     © 2026 My College Diary | All Rights Reserved
 </footer>
 
-<!-- ================= IMAGE PREVIEW MODAL ================= -->
 <div id="previewModal" class="modal" onclick="closeModal()">
 
     <div class="modal-content" onclick="event.stopPropagation()">
