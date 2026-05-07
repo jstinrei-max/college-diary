@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My College Diary</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f5f7ff;
+    color:#222;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(18, 33, 78, 0.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    transition:.3s;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    color:#ffd43b;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:120px 8%;
+    background:linear-gradient(135deg,#12214e,#355cdb);
+    color:white;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-content{
+    flex:1;
+    min-width:300px;
+}
+
+.hero-content h4{
+    font-size:20px;
+    font-weight:400;
+}
+
+.hero-content h1{
+    font-size:65px;
+    line-height:1.1;
+    margin:15px 0;
+}
+
+.hero-content h3{
+    color:#ffd43b;
+    margin-bottom:20px;
+    letter-spacing:2px;
+}
+
+.hero-content p{
+    max-width:550px;
+    line-height:1.8;
+    margin-bottom:30px;
+    color:#e5e5e5;
+}
+
+.hero-content button{
+    padding:14px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ffd43b;
+    color:#111;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hero-content button:hover{
+    transform:translateY(-3px);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:120px 8% 0; 
+    background:linear-gradient(135deg,#12214e,#355cdb);
+    color:white;
+    gap:50px;
+}
+
+.hero-content{
+    flex:1;
+    max-width:600px;
+}
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end; 
+}
+
+.hero-image img{
+    width:520px;   
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    display:block;
+    margin-bottom:-2px; 
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#1c2f75;
+}
+
+.about-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    text-align:center;
+    line-height:1.9;
+    font-size:17px;
+}
+
+.gallery{
+    background:#eef2ff;
+}
+
+.gallery-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.gallery-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.gallery-card:hover{
+    transform:translateY(-8px);
+}
+
+.gallery-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.gallery-content{
+    padding:20px;
+}
+
+.gallery-content h3{
+    color:#1c2f75;
+    margin-bottom:10px;
+}
+
+.gallery-content p{
+    font-size:14px;
+    color:#555;
+    line-height:1.7;
+}
+
+.portfolio-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.portfolio-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    font-weight:600;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-5px);
+}
+
+.blog{
+    background:#eef2ff;
+}
+
+.blog-post{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.blog-post h3{
+    margin-bottom:10px;
+    color:#1c2f75;
+}
+
+.contact-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    line-height:2.2;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+footer{
+    background:#12214e;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        text-align:center;
+        flex-direction:column-reverse;
+    }
+
+    .hero-content h1{
+        font-size:45px;
+    }
+
+}
+
+.portfolio-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.portfolio-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-8px);
+}
+
+.portfolio-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.portfolio-content{
+    padding:20px;
+}
+
+.portfolio-content h3{
+    color:#1c2f75;
+    margin-bottom:10px;
+}
+
+.portfolio-content p{
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    max-width:600px;
+    width:90%;
+    text-align:center;
+    position:relative;
+    animation:pop .3s ease;
+}
+
+.modal-content img{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.modal-content h3{
+    color:#1c2f75;
+    margin-bottom:10px;
+}
+
+.modal-content p{
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+@keyframes pop{
+    from{transform:scale(0.8); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:25px;
+    text-align:center;
+}
+
+.skill-card{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-6px);
+}
+
+.skill-card img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    margin-bottom:10px;
+}
+
+.skill-card p{
+    font-weight:600;
+    font-size:14px;
+    color:#1c2f75;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.contact-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    text-decoration:none;
+    color:#1a1a1a;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:.3s;
+    display:block;
+}
+
+.contact-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(47,92,255,0.25);
+}
+
+.contact-icon{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.contact-card h3{
+    color:#1c2f75;
+    margin-bottom:5px;
+}
+
+.contact-card p{
+    font-size:14px;
+    color:#555;
+}
+
+.experience-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.experience-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:.3s;
+    border-left:5px solid #1c2f75;
+}
+
+.experience-card:hover{
+    transform:translateY(-8px);
+    border-left:5px solid #ffd43b;
+}
+
+.experience-card h3{
+    color:#1c2f75;
+    margin-bottom:10px;
+}
+
+.experience-card p{
+    font-size:14px;
+    line-height:1.7;
+    color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">My College Diary</div>
+
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#experience">EXPERIENCE</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+</nav>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h4>Hello, I'm</h4>
+
+        <h1>JUSTIN RAE<br>VILLANUEVA</h1>
+
+        <h3>BSIT STUDENT</h3>
+
+        <p>
+            Welcome to my personal college diary website filled with memories,
+            experiences, projects, and achievements as an IT student.
+        </p>
+
+        <button onclick="document.getElementById('gallery').scrollIntoView();">
+            Explore Gallery
+        </button>
+
+    </div>
+
+    <div class="hero-image profile-large">
+        <img src="myProfile.png" alt="Profile">
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>About Me</h2>
+    </div>
+
+    <div class="about-box">
+        I am a passionate IT student who loves programming, system development,
+        and creating innovative projects using modern technologies.
+    </div>
+
+</section>
+
+<section id="experience">
+
+    <div class="section-title">
+        <h2>College Experience</h2>
+    </div>
+
+    <div class="experience-container">
+
+        <div class="experience-card">
+            <h3>Before College - Early Skills Foundation</h3>
+            <p>
+                Before entering college at CSTA (Colegio de Sta. Teresa de Avila),
+                I already had basic experience in Python programming.
+                I explored biometric-related projects such as facial recognition systems
+                and hand motion detection, which sparked my interest in system development
+                and artificial intelligence concepts early on.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>1st Year - 1st Semester</h3>
+            <p>
+                During my first semester, I started learning Java as my first formal programming language.
+                I also had a little experience in VB.NET, which helped me understand
+                basic programming logic and system structure.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>1st Year - 2nd Semester</h3>
+            <p>
+                I improved significantly in VB.NET through self-learning and practice.
+                I gained deeper knowledge in MySQL database and Microsoft Access,
+                which strengthened my ability to create database-driven applications.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>2nd Year - 1st Semester</h3>
+            <p>
+                I focused more on integrating databases with VB.NET systems.
+                I also learned system design, UI development, deployment process,
+                and improving overall user interface and user experience in applications.
+            </p>
+        </div>
+
+        <div class="experience-card">
+            <h3>2nd Year - 2nd Semester</h3>
+            <p>
+                I started exploring HTML for web development, although it felt more complex
+                compared to VB.NET drag-and-drop development. Despite that, I continued learning
+                and focused more on AI integration in my projects. This is where I discovered tools
+                like GPT4All and Ollama 3, which expanded my understanding of AI-based systems.
+            </p>
+        </div>
+
+        <!-- NEW: KEEP EXPLORING CARD -->
+        <div class="experience-card coming-soon">
+            <h3>🚀 Keep Exploring...</h3>
+            <p>
+                My journey in IT is still ongoing. I am continuously learning new technologies,
+                improving my programming skills, and exploring more advanced fields such as
+                Artificial Intelligence, Web Development, and System Integration.  
+                More experiences, challenges, and projects will be added soon as I grow in this field.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+    <div class="section-title">
+        <h2>My Gallery</h2>
+    </div>
+
+    <div class="gallery-container">
+
+        <div class="gallery-card"
+        onclick="openModal('gallery1.jpg','First Year College','A memorable moment that inspired me to pursue IT even more.')">
+
+            <img src="gallery1.jpg">
+
+            <div class="gallery-content">
+                <h3>First Year College</h3>
+                <p>A memorable moment that inspired me to pursue IT even more.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery2.jpg','VisionGuard Exhibition','A memorable picture with my group during the exhibition of our project, VisionGuard.')">
+
+            <img src="gallery2.jpg" alt="VisionGuard Exhibition">
+
+            <div class="gallery-content">
+                <h3>VisionGuard Exhibition</h3>
+                <p>A memorable picture with my group during our project exhibition.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery3.jpg','Research Memories','A bonding moment during our 2nd year research journey together.')">
+
+            <img src="gallery3.jpg">
+
+            <div class="gallery-content">
+                <h3>Research Memories</h3>
+                <p>A bonding moment during our research journey together.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery4.jpg','Special Person','The person who always supports and motivates me in my IT journey.')">
+
+            <img src="gallery4.jpg">
+
+            <div class="gallery-content">
+                <h3>Special Person</h3>
+                <p>The person who always supports and motivates me in my IT journey.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery5.jpg','Childhood Friends','Friends since childhood who became like brothers to me.')">
+
+            <img src="gallery5.jpg">
+
+            <div class="gallery-content">
+                <h3>Childhood Friends</h3>
+                <p>Friends since childhood who became like brothers to me.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery6.jpg','First Circle in College','This is my first circle in college life together with Amoncio, Orijuela, Del Rosario, and me. A memorable bond that made my college journey more meaningful.')">
+
+            <img src="gallery6.jpg">
+
+            <div class="gallery-content">
+                <h3>First Circle in College</h3>
+                <p>My first circle in college life with my closest classmates.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery7.jpg','Sport Fest Champions','A rewarding moment from our Sport Fest where the IT Department was crowned champion.')">
+
+            <img src="gallery7.jpg">
+
+            <div class="gallery-content">
+                <h3>Sport Fest Champions</h3>
+                <p>IT Department crowned champion in Sport Fest.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery8.jpg','Arduino Learning','A hands-on Arduino learning activity where we soldered components and built a working stop light system.')">
+
+            <img src="gallery8.jpg">
+
+            <div class="gallery-content">
+                <h3>Arduino Learning</h3>
+                <p>Hands-on activity building a stop light system using Arduino.</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-card"
+        onclick="openModal('gallery9.jpg','Scholar Support','Father Nelson and the Church of the Resurrection, who support my studies as a scholar.')">
+
+            <img src="gallery9.jpg">
+
+            <div class="gallery-content">
+                <h3>Scholar Support</h3>
+                <p>Support from Church of the Resurrection and Father Nelson.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="portfolio">
+
+    <div class="section-title">
+        <h2>Portfolio</h2>
+    </div>
+
+    <div class="portfolio-container">
+
+        <div class="portfolio-card"
+        onclick="openModal('project1.jpg','RFID Attendance Monitoring','An RFID-based attendance monitoring system with SMS notification using Arduino technology.')">
+
+            <img src="project1.jpg" alt="RFID Attendance Monitoring System">
+
+            <div class="portfolio-content">
+                <h3>RFID Attendance Monitoring</h3>
+                <p>RFID-based attendance system with SMS notification.</p>
+            </div>
+
+        </div>
+
+        <div class="portfolio-card"
+        onclick="openModal('project2.png','AI Chatbot Project','Advanced AI chatbot using Ollama 3, VB.NET, and MySQL.')">
+
+            <img src="project2.png">
+
+            <div class="portfolio-content">
+                <h3>AI Chatbot Project</h3>
+                <p>AI chatbot system using Ollama 3 and VB.NET.</p>
+            </div>
+
+        </div>
+
+        <div class="portfolio-card"
+        onclick="openModal('project3.png','Clipboard Management System','A system that manages copied data using VB.NET.')">
+
+            <img src="project3.png">
+
+            <div class="portfolio-content">
+                <h3>Clipboard Management System</h3>
+                <p>Efficient clipboard data management system.</p>
+            </div>
+
+        </div>
+
+        <div class="portfolio-card"
+        onclick="openModal('project4.png','College Diary Website','A personal website showcasing college memories and projects.')">
+
+            <img src="project4.png">
+
+            <div class="portfolio-content">
+                <h3>College Diary Website</h3>
+                <p>Personal portfolio and diary website.</p>
+            </div>
+
+        </div>
+
+        <div class="portfolio-card"
+        onclick="openModal('project5.jpg','Fingerprint Attendance System','A fingerprint-based attendance system with SMS notification that I presented during the exhibition at St. Agnes Academy of Caloocan, Inc.')">
+
+            <img src="project5.jpg" alt="Fingerprint Attendance System">
+
+            <div class="portfolio-content">
+                <h3>Fingerprint Attendance System</h3>
+                <p>Fingerprint-based attendance with SMS notification.</p>
+            </div>
+
+        </div>
+
+        <div class="portfolio-card"
+        onclick="openModal('project6.png','Property Inventory System','A Property Inventory System developed for our Information Management research. It helps track, manage, and organize school or office assets efficiently.')">
+
+            <img src="project6.png" alt="Property Inventory System">
+
+            <div class="portfolio-content">
+                <h3>Property Inventory System</h3>
+                <p>Inventory system used in our Information Management research.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="skills" id="skills">
+
+    <div class="section-title">
+        <h2>Skills</h2>
+    </div>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+            <p>Python</p>
+        </div>
+
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+            <p>MySQL</p>
+        </div>
+
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg">
+            <p>Arduino</p>
+        </div>
+
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg">
+            <p>VB.NET</p>
+        </div>
+
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+            <p>Google Apps Script</p>
+        </div>
+
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg">
+            <p>Microsoft Dev Tools</p>
+        </div>
+
+        <div class="skill-card">
+            <!-- Ollama icon (custom since walang official devicon) -->
+            <img src="https://ollama.com/public/ollama.png">
+            <p>Ollama AI</p>
+        </div>
+
+        <div class="skill-card">
+            <img src="https://avatars.githubusercontent.com/u/135838521?s=200&v=4" alt="GPT4All">
+            <p>GPT4All</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="section-title">
+        <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-container">
+
+        <a class="contact-card" href="mailto:jstinrei@gmail.com">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>jstinrei@gmail.com</p>
+        </a>
+
+        <a class="contact-card" href="https://www.facebook.com/" target="_blank">
+            <div class="contact-icon">📘</div>
+            <h3>Facebook</h3>
+            <p>Jstn Rei</p>
+        </a>
+
+        <a class="contact-card" href="tel:09707514745">
+            <div class="contact-icon">📱</div>
+            <h3>Phone</h3>
+            <p>0970 751 4745</p>
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 My College Diary | All Rights Reserved
+</footer>
+
+<div id="previewModal" class="modal" onclick="closeModal()">
+
+    <div class="modal-content" onclick="event.stopPropagation()">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <img id="modalImg" src="" alt="Preview Image">
+
+        <h3 id="modalTitle"></h3>
+
+        <p id="modalDesc"></p>
+
+    </div>
+
+</div>
+</body>
+
+<script>
+
+function openModal(img, title, desc){
+    document.getElementById("previewModal").style.display = "flex";
+    document.getElementById("modalImg").src = img;
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+}
+
+function closeModal(){
+    document.getElementById("previewModal").style.display = "none";
+}
+
+</script>
+</html>
